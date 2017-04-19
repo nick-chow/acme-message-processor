@@ -1,0 +1,22 @@
+<h1>Acme Message Processor</h1>
+<md-grid-list cols="2" rowHeight="200px">
+    <md-grid-tile [colspan]="1" [rowspan]="1" style="background:lightpink">
+        <h2>Pending: {{pending.length}}</h2>
+    </md-grid-tile>
+    <md-grid-tile [colspan]="1" [rowspan]="1" style="background:lightgreen">
+        <h2>Processed: {{processed.length}}</h2>
+    </md-grid-tile>
+    <md-grid-tile [colspan]="2" [rowspan]="2" style="background:whitesmoke">
+        <md-card>
+            <md-card-header >
+              <p color="primary">  Pending Messages: </p>
+            </md-card-header>
+            <md-list *ngFor="let message of pending | slice:0:5" (click)="openDialog(message)">
+                <md-list-item style="cursor: pointer;">
+                    <h3 color='primary' md-line> {{message.type =='Wish'?'Birthday Wish':'Congrats on the birth of your child'}} </h3>
+                </md-list-item>
+                <md-divider></md-divider>
+            </md-list>
+        </md-card>
+    </md-grid-tile>
+</md-grid-list>

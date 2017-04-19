@@ -1,0 +1,30 @@
+<p md-dialog-title color="primary">
+  {{ messageTypeDisplay }}
+</p>
+<md-dialog-content>
+
+  <form #messageForm="ngForm">
+    <div *ngIf="message.type=='Wish'">
+      <label>Gift</label>
+      <md-select placeholder="Please Select" floatPlaceholder="never" [(ngModel)]="message.gift" name="gift" required>
+        <md-option *ngFor="let gift of giftOptions" [value]="gift.name">{{ gift.name }}</md-option>
+      </md-select>
+    </div>
+
+    <div *ngIf="message.type=='Congratulation'">
+      <label>Baby Name</label>
+      <md-select placeholder="Please Select" floatPlaceholder="never" [(ngModel)]="message.babyName" name="name" required>
+        <md-option *ngFor="let name of babynameOptions" [value]="name">{{ name }}</md-option>
+      </md-select>
+    </div>
+    <div *ngIf="message.type=='Congratulation'">
+      <label>Birthday</label>
+      <input type="date" [(ngModel)]="message.birthdate" name="birthdate" required/>
+    </div>
+    <div>
+      <label>Message</label>
+      <textarea [ngModel]="defaultMessage" name="message" rows="4" readOnly></textarea>
+    </div>
+    <button color="primary" md-raised-button [disabled]="!messageForm.form.valid" (click)="submit()">Submit</button>
+  </form>
+</md-dialog-content>

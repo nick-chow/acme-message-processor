@@ -1,0 +1,22 @@
+
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+
+form{
+    padding: 3vw;
+    display:flex;
+    flex-direction:column;
+  }
+md-select, textarea, input{
+  display:block;
+  width: 100%;
+}
+form > div{
+  margin-bottom: 1.5vw;
+}
+form > button{
+  margin-top: 3rem;
+}
